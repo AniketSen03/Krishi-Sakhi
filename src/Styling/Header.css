@@ -63,6 +63,20 @@ height: 40px;
   background-color: #166534; /* green-800 */
 }
 
+/* SignIn button */
+.signinbtn {
+  background-color: #15803d;
+  color: white;
+  border: none;
+}
+
+/* SignUp button (outlined style) */
+.signupbtn {
+  background: transparent;
+  color: #15803d;
+  border: 2px solid #15803d;
+}
+
 /* Mobile menu button */
 .mobile-menu-btn {
   display: block;
@@ -80,7 +94,19 @@ height: 40px;
 .mobile-menu-btn button:hover {
   color: #15803d; /* green-700 */
 }
+/* SignIn button */
+.mobile-nav nav .signinbtn {
+  background-color: #15803d;
+  color: white;
+  border: none;
+}
 
+/* SignUp button (outlined style) */
+.mobile-nav nav .signupbtn {
+  background: transparent;
+  color: #15803d;
+  border: 2px solid #15803d;
+}
 /* Mobile navigation */
 .mobile-nav {
   padding-bottom: 16px;

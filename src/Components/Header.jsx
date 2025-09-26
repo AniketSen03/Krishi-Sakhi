@@ -23,8 +23,8 @@ export default function Header() {
           </nav>
           {/* Desktop Button */}
           <div className="desktop-btn">
-            <Link to={'/signin'} className="signinbtn"><button>SignIn</button></Link>
-            <Link to={'/signup'} className="signupbtn"><button>SignUp</button></Link>
+            <Link to={'/signin'} ><button className="signinbtn">SignIn</button></Link>
+            <Link to={'/signup'}><button  className="signupbtn">SignUp</button></Link>
           </div>
 
           {/* Mobile menu button */}
@@ -43,8 +43,8 @@ export default function Header() {
               <Link to={'/about'} onClick={() => setIsMenuOpen(false)}>About</Link>
               <Link to={'/services'} onClick={() => setIsMenuOpen(false)}>Services</Link>
               <Link to={'/contact'} onClick={() => setIsMenuOpen(false)}>Contact</Link>
-              <Link to={'/signin'}><button className="signupbtn">SignIn</button></Link>
-              <Link to={'/signup'}><button className="signinbtn">SignUP</button></Link>
+              <Link to={'/signin'}><button className="siginbtn">SignIn</button></Link>
+              <Link to={'/signup'}><button className="signupbtn">SignUP</button></Link>
             </nav>
           </div>
         )}
