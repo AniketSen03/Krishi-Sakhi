@@ -5,8 +5,8 @@ export default function Stats() {
   const stats = [
     { value: "50+", label: "Years Of Experience" },
     { value: "200+", label: "Fields In Progress" },
-    { value: "120,000+", label: "Farmers Around Kerala" },
-    { value: "$15 Million", label: "Agricultural Products" },
+    { value: "1,20,000+", label: "Farmers Around Kerala" },
+    { value: "₹10,00,000+", label: "Agricultural Products" },
   ];
 
   return (
