@@ -1,5 +1,9 @@
-import React from "react";
+import React, { useRef, useEffect } from "react";
 import "../Styling/About.css";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
 
 const sections = [
     {
@@ -32,6 +36,26 @@ const sections = [
 ];
 
 export default function About() {
+    const sectionRefs = useRef([]);
+
+    useEffect(() => {
+        sectionRefs.current.forEach((el, index) => {
+            if (!el) return;
+            const direction = index % 2 === 0 ? -100 : 100; // left or right
+            gsap.from(el.querySelectorAll(".about-image, .about-content"), {
+                x: direction,
+                opacity: 0,
+                duration: 1,
+                stagger: 0.2,
+                ease: "power2.out",
+                scrollTrigger: {
+                    trigger: el,
+                    start: "top 80%",
+                },
+            });
+        });
+    }, []);
+
     return (
         <section className="about-section">
             <div className="intro">
@@ -51,6 +75,7 @@ export default function About() {
                     <div
                         className={`about-row ${index % 2 === 0 ? "image-left" : "image-right"}`}
                         key={index}
+                        ref={el => sectionRefs.current[index] = el}
                     >
                         <div className="about-image">
                             <img src={section.image} alt={section.title} />
@@ -72,7 +97,6 @@ export default function About() {
                         </div>
                     </div>
                 ))}
-
             </div>
         </section>
     );

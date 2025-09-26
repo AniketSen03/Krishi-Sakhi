@@ -1,10 +1,31 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import "../Styling/SearchSection.css";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
 
 export default function SearchSection() {
   const [searchText, setSearchText] = useState("");
   const [uploadedFile, setUploadedFile] = useState(null);
   const recognitionRef = useRef(null);
+  const sectionRef = useRef(null); // Ref for ScrollTrigger
+
+  // GSAP ScrollTrigger animation
+  useEffect(() => {
+    if (sectionRef.current) {
+      gsap.from(sectionRef.current.querySelectorAll(".search-container > *"), {
+        y: 50,
+        opacity: 0,
+        duration: 1,
+        stagger: 0.2,
+        scrollTrigger: {
+          trigger: sectionRef.current,
+          start: "top 80%",
+        },
+      });
+    }
+  }, []);
 
   const startMic = () => {
     if (!("webkitSpeechRecognition" in window || "SpeechRecognition" in window)) {
@@ -33,21 +54,15 @@ export default function SearchSection() {
     recognitionRef.current = recognition;
   };
 
-  // Handle file upload
   const handleUpload = (e) => {
     const file = e.target.files[0];
-    if (file) {
-      setUploadedFile(file.name);
-    }
+    if (file) setUploadedFile(file.name);
   };
 
-  // Clear input text
-  const clearText = () => {
-    setSearchText("");
-  };
+  const clearText = () => setSearchText("");
 
   return (
-    <section className="search-section">
+    <section className="search-section" ref={sectionRef}>
       <div className="search-container">
         <img src="/Logo.svg" alt="Logo" />
         <p className="search-subtitle">Your gateway to smarter farming</p>
@@ -60,14 +75,12 @@ export default function SearchSection() {
             onChange={(e) => setSearchText(e.target.value)}
           />
 
-          {/* Clear Text Button */}
           {searchText && (
             <button className="icon-btn" title="Clear Text" onClick={clearText}>
               <span style={{ fontWeight: "bold" }}>×</span>
             </button>
           )}
 
-          {/* Voice Search Button */}
           <button className="icon-btn" title="Voice Search" onClick={startMic}>
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-mic-fill" viewBox="0 0 16 16">
               <path d="M5 3a3 3 0 0 1 6 0v5a3 3 0 0 1-6 0z" />
@@ -75,7 +88,6 @@ export default function SearchSection() {
             </svg>
           </button>
 
-          {/* Upload Image Button */}
           <label className="icon-btn" title="Upload Image">
             <input type="file" accept="image/*" style={{ display: "none" }} onChange={handleUpload} />
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-upload" viewBox="0 0 16 16">
@@ -84,7 +96,6 @@ export default function SearchSection() {
             </svg>
           </label>
 
-          {/* Search Button */}
           <button className="icon-btn" title="Search">
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-search" viewBox="0 0 16 16">
               <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0" />
@@ -92,7 +103,6 @@ export default function SearchSection() {
           </button>
         </div>
 
-        {/* Show uploaded file name */}
         {uploadedFile && <p>Uploaded: {uploadedFile}</p>}
       </div>
     </section>

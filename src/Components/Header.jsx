@@ -1,9 +1,41 @@
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import "../Styling/Header.css"; // Import your CSS file
 import { Link } from "react-router-dom";
+import { gsap } from "gsap";
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const desktopNavRef = useRef(null);
+  const desktopBtnRef = useRef(null);
+  const mobileNavRef = useRef(null);
+
+  useEffect(() => {
+    // Animate desktop nav and buttons on page load
+    const desktopLinks = desktopNavRef.current.querySelectorAll("a");
+    const desktopButtons = desktopBtnRef.current.querySelectorAll("button");
+
+    gsap.from([...desktopLinks, ...desktopButtons], {
+      y: -20,
+      opacity: 0,
+      duration: 0.5,
+      stagger: 0.15,
+      ease: "power2.out",
+    });
+  }, []);
+
+  useEffect(() => {
+    // Animate mobile nav links/buttons when menu opens
+    if (isMenuOpen && mobileNavRef.current) {
+      const mobileItems = mobileNavRef.current.querySelectorAll("a, button");
+      gsap.from(mobileItems, {
+        y: -20,
+        opacity: 0,
+        duration: 0.5,
+        stagger: 0.1,
+        ease: "power2.out",
+      });
+    }
+  }, [isMenuOpen]);
 
   return (
     <header className="header">
@@ -15,16 +47,20 @@ export default function Header() {
           </div>
 
           {/* Desktop Navigation */}
-          <nav className="desktop-nav">
-            <Link to={'/'}>Home</Link>
-            <Link to={'/about'}>About</Link>
-            <Link to={'/services'}>Services</Link>
-            <Link to={'/contact'}>Contact</Link>
+          <nav className="desktop-nav" ref={desktopNavRef}>
+            <Link to={"/"}>Home</Link>
+            <Link to={"/about"}>About</Link>
+            <Link to={"/services"}>Services</Link>
+            <Link to={"/contact"}>Contact</Link>
           </nav>
           {/* Desktop Button */}
-          <div className="desktop-btn">
-            <Link to={'/signin'} ><button className="signinbtn">SignIn</button></Link>
-            <Link to={'/signup'}><button  className="signupbtn">SignUp</button></Link>
+          <div className="desktop-btn" ref={desktopBtnRef}>
+            <Link to={"/signin"}>
+              <button className="signinbtn">SignIn</button>
+            </Link>
+            <Link to={"/signup"}>
+              <button className="signupbtn">SignUp</button>
+            </Link>
           </div>
 
           {/* Mobile menu button */}
@@ -37,14 +73,26 @@ export default function Header() {
 
         {/* Mobile Navigation */}
         {isMenuOpen && (
-          <div className="mobile-nav">
+          <div className="mobile-nav" ref={mobileNavRef}>
             <nav>
-              <Link to={'/'} onClick={() => setIsMenuOpen(false)}>Home</Link>
-              <Link to={'/about'} onClick={() => setIsMenuOpen(false)}>About</Link>
-              <Link to={'/services'} onClick={() => setIsMenuOpen(false)}>Services</Link>
-              <Link to={'/contact'} onClick={() => setIsMenuOpen(false)}>Contact</Link>
-              <Link to={'/signin'}><button className="siginbtn">SignIn</button></Link>
-              <Link to={'/signup'}><button className="signupbtn">SignUP</button></Link>
+              <Link to={"/"} onClick={() => setIsMenuOpen(false)}>
+                Home
+              </Link>
+              <Link to={"/about"} onClick={() => setIsMenuOpen(false)}>
+                About
+              </Link>
+              <Link to={"/services"} onClick={() => setIsMenuOpen(false)}>
+                Services
+              </Link>
+              <Link to={"/contact"} onClick={() => setIsMenuOpen(false)}>
+                Contact
+              </Link>
+              <Link to={"/signin"}>
+                <button className="siginbtn">SignIn</button>
+              </Link>
+              <Link to={"/signup"}>
+                <button className="signupbtn">SignUP</button>
+              </Link>
             </nav>
           </div>
         )}
