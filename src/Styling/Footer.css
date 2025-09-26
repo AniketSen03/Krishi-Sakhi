@@ -114,7 +114,7 @@ height: 40px;
 
 .footer-subscribe button {
   padding: 10px 16px;
-  background-color: #16a34a;
+  background-color: black;
   color: #fff;
   font-weight: 600;
   border: none;
@@ -124,7 +124,7 @@ height: 40px;
 }
 
 .footer-subscribe button:hover {
-  background-color: #15803d;
+  background-color: #202020;
 }
 
 .footer-address {

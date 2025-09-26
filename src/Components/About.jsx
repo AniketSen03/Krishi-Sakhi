@@ -8,26 +8,26 @@ const sections = [
               Generic advisories fail to consider local crop choices, weather, soil conditions, or farming practices. 
               Many farmers also don’t maintain activity records, limiting their ability to learn from past seasons 
               and access scheme benefits.`,
-        image: "https://wallpaperaccess.com/full/1635212.jpg",
+        image: "/15.png",
     },
     {
         title: "Challenge",
         content: `Build an AI-powered personal farming assistant that acts like a digital companion for 
               each farmer—understanding their specific context, guiding their actions, and learning over time.`,
-        image: "https://images.unsplash.com/photo-1567306226416-28f0efdc88ce?auto=format&fit=crop&w=800&q=60",
+        image: "/16.png",
     },
     {
         title: "Core Features",
         content: `Farmer & Farm Profiling, Conversational Interface in Malayalam, Activity Tracking, 
               Personalized Advisory, Reminders & Alerts, Knowledge Engine.`,
-        image: "https://images.unsplash.com/photo-1581091012184-4b5c0f3c8bb0?auto=format&fit=crop&w=800&q=60",
+        image: "/17.png",
     },
     {
         title: "Expected Impact",
         content: `🌱 Empowers farmers with personalized, on-demand support.
               🌱 Enhances productivity and sustainability through timely actions.
               🌱 Bridges the knowledge gap using AI + local context.`,
-        image: "https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=800&q=60",
+        image: "/18.png",
     },
 ];
 
@@ -37,7 +37,7 @@ export default function About() {
             <div className="intro">
                 <h2>About <span>Krishi Sakhi</span></h2>
                 <img
-                    src="https://images.unsplash.com/photo-1601004890684-d8cbf643f5f2?auto=format&fit=crop&w=800&q=60"
+                    src="1.jpg"
                     alt="Krishi Sakhi Intro"
                     className="intro-image"
                 />
@@ -73,9 +73,6 @@ export default function About() {
                     </div>
                 ))}
 
-                <div className="cta">
-                    <button className="about-btn">Explore Our Solution →</button>
-                </div>
             </div>
         </section>
     );
