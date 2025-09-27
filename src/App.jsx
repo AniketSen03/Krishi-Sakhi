@@ -13,6 +13,8 @@ import Chatbot from "./Components/Chatbot";
 import FarmSection from "./Components/FarmSection";
 import Dashboard from "./Components/Dashboard";
 import WeatherSection from "./Components/WeatherSection";
+import KrishiStore from "./Components/KrishiStore";
+import DashboardHome from "./Components/Dashboardhome";
 
 function App() {
 
@@ -31,6 +33,8 @@ function App() {
         <Route path='/farm-section' element={<FarmSection/>}/>
         <Route path='/dashboard' element={<Dashboard/>}/>
         <Route path='/weather-forecast' element={<WeatherSection/>}/>
+        <Route path='/krishi-store' element={<DashboardHome/>}/>
+        <Route path='/products' element={<KrishiStore/>}/>
       </Routes>
       <Footer/>
     </>
