@@ -55,10 +55,10 @@ export default function Header() {
           </nav>
           {/* Desktop Button */}
           <div className="desktop-btn" ref={desktopBtnRef}>
-            <Link to={"/signin"}>
+            <Link to={"/sign-in"}>
               <button className="signinbtn">SignIn</button>
             </Link>
-            <Link to={"/signup"}>
+            <Link to={"/sign-up"}>
               <button className="signupbtn">SignUp</button>
             </Link>
           </div>
@@ -87,10 +87,10 @@ export default function Header() {
               <Link to={"/contact"} onClick={() => setIsMenuOpen(false)}>
                 Contact
               </Link>
-              <Link to={"/signin"}>
+              <Link to={"/sign-in"}>
                 <button className="siginbtn">SignIn</button>
               </Link>
-              <Link to={"/signup"}>
+              <Link to={"/sign-up"}>
                 <button className="signupbtn">SignUP</button>
               </Link>
             </nav>

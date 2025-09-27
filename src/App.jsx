@@ -9,6 +9,10 @@ import SignIn from "./Components/SignIn";
 import SignUp from "./Components/SignUp";
 import Services from "./Components/Services";
 import Home from "./Components/Home";
+import Chatbot from "./Components/Chatbot";
+import FarmSection from "./Components/FarmSection";
+import Dashboard from "./Components/Dashboard";
+import WeatherSection from "./Components/WeatherSection";
 
 function App() {
 
@@ -21,8 +25,12 @@ function App() {
         <Route path="/about" element={<About />} />
         <Route path="/services" element={<Services />} />
         <Route path="/contact" element={<Contact />} />
-        <Route path="/signin" element={<SignIn />} />
-        <Route path="/signup" element={<SignUp />} />
+        <Route path="/sign-in" element={<SignIn />} />
+        <Route path="/sign-up" element={<SignUp />} />
+        <Route path='/chatbot' element={<Chatbot/>}/>
+        <Route path='/farm-section' element={<FarmSection/>}/>
+        <Route path='/dashboard' element={<Dashboard/>}/>
+        <Route path='/weather-forecast' element={<WeatherSection/>}/>
       </Routes>
       <Footer/>
     </>

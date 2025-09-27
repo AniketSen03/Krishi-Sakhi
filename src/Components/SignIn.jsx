@@ -68,7 +68,7 @@ export default function SignIn() {
           </div>
 
           <p className="switch-auth">
-            Don’t have an account? <Link to="/signup">Sign Up</Link>
+            Don’t have an account? <Link to="/sign-up">Sign Up</Link>
           </p>
         </div>
       </div>
