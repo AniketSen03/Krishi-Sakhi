@@ -18,17 +18,17 @@ export default function Services() {
 
   useEffect(() => {
     if (sectionRef.current) {
-      gsap.from(sectionRef.current.querySelectorAll(".service-card"), {
-        y: 50,
-        opacity: 0,
-        duration: 1,
-        stagger: 0.2,
-        ease: "power2.out",
-        scrollTrigger: {
-          trigger: sectionRef.current,
-          start: "top 80%",
-        },
-      });
+     gsap.fromTo(
+  sectionRef.current.querySelectorAll(".service-card"),
+  { y: 50, opacity: 0 },
+  { y: 0, opacity: 1, duration: 1, stagger: 0.2, ease: "power2.out",
+    scrollTrigger: {
+      trigger: sectionRef.current,
+      start: "top 80%",
+    },
+  }
+);
+
     }
   }, []);
 

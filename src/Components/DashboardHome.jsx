@@ -1,10 +1,14 @@
-import React, { useState } from "react";
+// src/components/DashboardHome.js
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { products } from "./products";
 import { categories } from "./categories";
 import { storesData } from "./stores";
 import "../Styling/Dashboardhome.css";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
+gsap.registerPlugin(ScrollTrigger);
 
 const DashboardHome = () => {
   const [stores] = useState(storesData);
@@ -21,6 +25,60 @@ const DashboardHome = () => {
   const handleAddToCart = (product) => {
     alert(`${product.name} added to cart!`);
   };
+
+useEffect(() => {
+  // Hero content slides from top
+  gsap.from(".hero-content", {
+    y: -50,
+    opacity: 0,
+    duration: 1,
+    ease: "power3.out",
+    scrollTrigger: {
+      trigger: ".hero-section",
+      start: "top 90%",
+    },
+  });
+
+  // Featured products slide in from bottom
+  gsap.from(".product-card", {
+    y: 50,
+    opacity: 0,
+    stagger: 0.2,
+    duration: 0.8,
+    ease: "power2.out",
+    scrollTrigger: {
+      trigger: ".featured-products",
+      start: "top 85%",
+    },
+  });
+
+  // Section headers fade in from top
+  gsap.from(".section-title", {
+    y: -30,
+    opacity: 0,
+    duration: 0.8,
+    stagger: 0.1,
+    ease: "power2.out",
+    scrollTrigger: {
+      trigger: ".section-title",
+      start: "top 90%",
+    },
+  });
+
+  // Stores slide in from bottom
+  gsap.from(".store-card", {
+    y: 50,
+    opacity: 0,
+    stagger: 0.15,
+    duration: 0.8,
+    ease: "power2.out",
+    scrollTrigger: {
+      trigger: ".stores-section",
+      start: "top 85%",
+    },
+  });
+}, []);
+
 
   return (
     <div className="home-page">
@@ -69,8 +127,10 @@ const DashboardHome = () => {
                 <h4>{product.name}</h4>
                 <p>{product.description}</p>
                 <p>₹{product.price}</p>
-                <button className="add-to-cart-btn"
-                  onClick={() => handleAddToCart(product)}>
+                <button
+                  className="add-to-cart-btn"
+                  onClick={() => handleAddToCart(product)}
+                >
                   Add to Cart
                 </button>
               </div>
@@ -95,7 +155,6 @@ const DashboardHome = () => {
               >
                 Verified Only
               </button>
-
             </div>
           </div>
           <div className="stores-grid">
@@ -113,4 +172,4 @@ const DashboardHome = () => {
   );
 };
 
-export default DashboardHome; // ✅ default export
+export default DashboardHome;

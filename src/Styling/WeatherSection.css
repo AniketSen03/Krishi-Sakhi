@@ -102,11 +102,11 @@
 }
 
 .forecast-card {
-  background: rgb(205, 247, 205);
+  background: rgb(227, 253, 227);
   padding: 20px;
   border-radius: 10px;
   text-align: center;
-  border: 1px solid #e9ecef;
+  border: 1px solid #6bd26b;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
@@ -139,7 +139,7 @@
 }
 
 .rainfall .value {
-  color: #3498db;
+  color: #10ca32;
   font-weight: bold;
 }
 
@@ -148,6 +148,22 @@
   font-weight: bold;
   font-size: 0.9rem;
 }
+.humidity, .wind {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.9rem;
+  margin-top: 5px;
+}
+
+.humidity .label, .wind .label {
+  color: #2980b9;
+}
+
+.humidity .value, .wind .value {
+  font-weight: bold;
+  color: #27ae60;
+}
+
 
 @media (max-width: 768px) {
   .weather-content {

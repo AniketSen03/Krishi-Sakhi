@@ -1,7 +1,11 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { products } from "./products";
 import { categories } from "./categories";
 import "../Styling/Krishistore.css";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
 
 const KrishiStore = () => {
   const [selectedCategory, setSelectedCategory] = useState("All");
@@ -31,6 +35,44 @@ const KrishiStore = () => {
     });
     alert(`${product.name} added to cart!`);
   };
+
+  useEffect(() => {
+    // Sidebar slides from top
+    gsap.from(".sidebar", {
+      y: -50,
+      opacity: 0,
+      duration: 1,
+      ease: "power3.out",
+      scrollTrigger: {
+        trigger: ".sidebar",
+        start: "top 90%",
+      },
+    });
+
+    // Products slide from bottom
+    gsap.from(".product-card", {
+      y: 30,
+      opacity: 0,
+      duration: 0.8,
+      ease: "power2.out",
+      scrollTrigger: {
+        trigger: ".products-container",
+        start: "top 85%",
+      },
+    });
+
+    // Page header fade in
+    gsap.from(".page-header", {
+      y: -30,
+      opacity: 0,
+      duration: 0.8,
+      ease: "power2.out",
+      scrollTrigger: {
+        trigger: ".page-header",
+        start: "top 95%",
+      },
+    });
+  }, []);
 
   return (
     <div className="product-listing-page">
@@ -96,7 +138,6 @@ const KrishiStore = () => {
                     Add to Cart
                   </button>
                 </div>
-
               ))}
             </div>
           </main>
@@ -106,4 +147,4 @@ const KrishiStore = () => {
   );
 };
 
-export default KrishiStore; // ✅ default export
+export default KrishiStore;

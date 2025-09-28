@@ -2,6 +2,7 @@ import React, { useEffect, useRef } from "react";
 import "../Styling/FarmingAssistant.css";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { Link } from "react-router-dom";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -45,7 +46,9 @@ export default function FarmingAssistant() {
           </svg>{" "}
           Wayanad, Kerala
         </p>
-        <button className="farming-button">Get Started →</button>
+         <Link to="/chatbot">
+          <button className="farming-button">Get Started →</button>
+        </Link>
       </div>
     </section>
   );

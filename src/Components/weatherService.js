@@ -21,14 +21,13 @@ export const getWeatherData = async () => {
       icon: '🌤️'
     },
     forecast: [
-      { day: 'Today', rainfall: '50%', temperature: '10°C/30°C', icon: '🌤️' },
-      { day: '22 May', rainfall: '50%', temperature: '10°C/30°C', icon: '🌤️' },
-      { day: '23 May', rainfall: '50%', temperature: '10°C/30°C', icon: '🌧️' },
-      { day: '24 May', rainfall: '50%', temperature: '10°C/30°C', icon: '🌤️' },
-      { day: '25 May', rainfall: '50%', temperature: '10°C/30°C', icon: '⛅' },
-      { day: '26 May', rainfall: '50%', temperature: '10°C/30°C', icon: '🌤️' },
-      { day: '27 May', rainfall: '50%', temperature: '10°C/30°C', icon: '🌤️' }
-    ]
+    { day: 'Today', rainfall: '50%', temperature: '10°C/30°C', icon: '🌤️', humidity: '65%', windSpeed: '12 km/h' },
+      { day: '22 May', rainfall: '40%', temperature: '12°C/28°C', icon: '🌤️', humidity: '70%', windSpeed: '10 km/h' },
+      { day: '23 May', rainfall: '60%', temperature: '14°C/26°C', icon: '🌧️', humidity: '80%', windSpeed: '15 km/h' },
+      { day: '24 May', rainfall: '20%', temperature: '16°C/32°C', icon: '🌤️', humidity: '55%', windSpeed: '8 km/h' },
+      { day: '25 May', rainfall: '10%', temperature: '18°C/34°C', icon: '⛅', humidity: '50%', windSpeed: '6 km/h' },
+      { day: '26 May', rainfall: '30%', temperature: '17°C/31°C', icon: '🌤️', humidity: '60%', windSpeed: '9 km/h' },
+  ]
   };
 };
 
