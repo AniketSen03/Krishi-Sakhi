@@ -14,7 +14,7 @@ import FarmSection from "./Components/FarmSection";
 import Dashboard from "./Components/Dashboard";
 import WeatherSection from "./Components/WeatherSection";
 import KrishiStore from "./Components/KrishiStore";
-import DashboardHome from "./Components/Dashboardhome";
+import DashboardHome from "./Components/DashboardHome";
 
 function App() {
 
