@@ -1,10 +1,10 @@
 .stats-section {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 24px;
+  grid-template-columns: 1fr; /* default: 1 column for small mobiles */
+  gap: 16px;
   text-align: center;
-  padding: 48px 16px;
-   background-color: #f3f8f0;
+  padding: 32px 16px;
+  background-color: #f3f8f0;
 }
 
 .stat-item {
@@ -14,19 +14,37 @@
 }
 
 .stat-value {
-  font-size: 28px;
+  font-size: 24px;
   font-weight: bold;
-  color: #056900; 
+  color: #056900;
   margin: 0;
+  word-break: break-word; /* prevents long numbers from overflowing */
 }
 
 .stat-label {
-  font-size: 16px;
-  color: #383b38; 
+  font-size: 14px;
+  color: #383b38;
   margin-top: 4px;
 }
 
-/* Responsive */
+/* Small screens (≥ 480px) → 2 columns */
+@media (min-width: 480px) {
+  .stats-section {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+    padding: 40px 16px;
+  }
+
+  .stat-value {
+    font-size: 28px;
+  }
+
+  .stat-label {
+    font-size: 16px;
+  }
+}
+
+/* Medium screens (≥ 768px) → 4 columns */
 @media (min-width: 768px) {
   .stats-section {
     grid-template-columns: repeat(4, 1fr);
@@ -43,6 +61,7 @@
   }
 }
 
+/* Large screens (≥ 1024px) */
 @media (min-width: 1024px) {
   .stats-section {
     padding: 80px 64px;

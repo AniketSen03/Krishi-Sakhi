@@ -1,11 +1,11 @@
-/* Container */
 .search-section {
-  height: 50vh;
+  min-height: 50vh;
   display: flex;
   justify-content: center;
   align-items: center;
   text-align: center;
   font-family: 'Arial', sans-serif;
+  padding: 16px;
 }
 
 .search-container {
@@ -13,37 +13,25 @@
   max-width: 600px;
 }
 
-/* Title */
-.search-title {
-  font-size: 3rem;
-  font-weight: 700;
-  color: #166534;
-  margin-bottom: 8px;
-}
-
-.search-subtitle {
-  font-size: 1.1rem;
-  color: #4d634b;
-  margin-bottom: 24px;
-}
-
 /* Search Box */
 .search-box {
   display: flex;
+  flex-wrap: wrap; /* allow wrapping on small screens */
   align-items: center;
+  justify-content: center;
   border: 1px solid #d1d5db;
   background-color: #fff;
   border-radius: 999px;
-  padding: 10px 20px;
+  padding: 10px 16px;
   box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-  transition: box-shadow 0.2s ease;
 }
 
 .search-box input {
-  flex: 1;
+  flex: 1 1 150px; /* grows and shrinks, min 150px */
   border: none;
   font-size: 16px;
   outline: none;
+  min-width: 0; /* important for flex-shrink to work */
 }
 
 /* Icons */
@@ -51,42 +39,16 @@
   background: none;
   border: none;
   font-size: 18px;
-  margin-left: 8px;
+  margin: 4px 4px 0 4px;
   cursor: pointer;
   color: #4b5563;
   transition: color 0.2s ease;
 }
 
-.icon-btn:hover {
-  color: #16a34a;
-}
-
-/* Action Buttons (like Google) */
-.search-buttons {
-  margin-top: 20px;
-  display: flex;
-  justify-content: center;
-  gap: 12px;
-}
-
-.action-btn {
-  background-color: #f3f4f6;
-  border: 1px solid #d1d5db;
-  border-radius: 4px;
-  padding: 8px 16px;
-  font-size: 14px;
-  cursor: pointer;
-  transition: background-color 0.2s ease;
-}
-
-.action-btn:hover {
-  background-color: #e5e7eb;
-}
-
-/* Responsive */
+/* Responsive adjustments */
 @media (max-width: 480px) {
   .search-title {
-    font-size: 2.2rem;
+    font-size: 2rem;
   }
 
   .search-subtitle {
@@ -95,12 +57,17 @@
 
   .search-box {
     flex-direction: column;
+    align-items: stretch; /* full width items */
     padding: 8px;
   }
 
+  .search-box input {
+    width: 100%;
+    margin-bottom: 8px;
+  }
+
   .icon-btn {
-    margin-left: 0;
-    margin-top: 6px;
+    margin: 4px 0;
   }
 
   .search-buttons {
