@@ -195,3 +195,70 @@
   background: #1b5e20;
   transform: translateY(-1px);
 }
+@media (max-width: 768px) {
+  .listing-content {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .sidebar {
+    position: relative; /* remove sticky on small screens */
+    top: 0;
+    width: 100%;
+    margin-bottom: 1rem;
+  }
+
+  .products-main {
+    width: 100%;
+  }
+
+  .products-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  .sort-select {
+    width: 100%;
+  }
+}
+@media (max-width: 480px) {
+  .products-container {
+    grid-template-columns: 1fr; /* single column for small phones */
+    gap: 1rem;
+  }
+
+  .product-card {
+    padding: 0.8rem;
+  }
+
+  .product-name {
+    font-size: 1rem;
+  }
+
+  .product-description {
+    font-size: 0.85rem;
+  }
+
+  .product-price {
+    font-size: 1.1rem;
+  }
+
+  .add-to-cart-btn {
+    padding: 6px 12px;
+    font-size: 0.9rem;
+  }
+}
+@media (max-width: 480px) {
+  .search-bar {
+    width: 100%;
+    font-size: 0.9rem;
+    padding: 8px 12px;
+  }
+
+  .cart-button {
+    padding: 8px 15px;
+    font-size: 0.9rem;
+  }
+}
